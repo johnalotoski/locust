@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "locust": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1645800776,
+        "narHash": "sha256-NYPAw3/JVZiMPeXvKZLXnstSgiU3FIygNXyy6a48KvI=",
+        "owner": "locustio",
+        "repo": "locust",
+        "rev": "dedd94cfd67435155bac1bca275422ce5260b69f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "locustio",
+        "repo": "locust",
+        "rev": "dedd94cfd67435155bac1bca275422ce5260b69f",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1646331602,
+        "narHash": "sha256-cRuytTfel52z947yKfJcZU7zbQBgM16qqTf+oJkVwtg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ad267cc9cf3d5a6ae63940df31eb31382d6356e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "locust": "locust",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
