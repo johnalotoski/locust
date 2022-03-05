@@ -1,7 +1,8 @@
 { inputs, self }:
 final: prev:
 let inherit (final) lib;
-in rec {
+in
+rec {
   flask-basicauth = final.callPackage ./pkgs/flask-basicauth.nix { inherit (final.python3Packages) buildPythonPackage fetchPypi flask; };
   roundrobin = final.callPackage ./pkgs/round-robin.nix { inherit (final.python3Packages) buildPythonPackage fetchPypi; };
 
@@ -38,6 +39,4 @@ in rec {
       description = "A load testing tool";
     };
   };
-
-
 }

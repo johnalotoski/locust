@@ -7,20 +7,22 @@
     flake = false;
   };
 
-  outputs = { self, nixpkgs, locust }@inputs: let
-    overlay = import ./overlay.nix { inherit inputs self; };
-    overlays = [ overlay ];
+  outputs = { self, nixpkgs, locust }@inputs:
+    let
+      overlay = import ./overlay.nix { inherit inputs self; };
+      overlays = [ overlay ];
 
-    pkgsForSystem = system:
-      import nixpkgs {
-        inherit overlays system;
-        config.allowUnfree = true;
+      pkgsForSystem = system:
+        import nixpkgs {
+          inherit overlays system;
+          config.allowUnfree = true;
+        };
+      pkgs = pkgsForSystem "x86_64-linux";
+    in
+    rec {
+      packages.x86_64-linux = {
+        inherit (pkgs) locust;
       };
-    pkgs = pkgsForSystem "x86_64-linux";
-  in rec {
-    packages.x86_64-linux = {
-      inherit (pkgs) locust;
+      defaultPackage.x86_64-linux = packages.x86_64-linux.locust;
     };
-    defaultPackage.x86_64-linux = packages.x86_64-linux.locust;
-  };
 }
